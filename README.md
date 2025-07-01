@@ -345,4 +345,4 @@ You can also support this project by [becoming a sponsor on GitHub](https://gith
 
 ## 📝 License
 
-[![License](https://img.shields.io/github/license/bsv-blockchain/go-safe-conversion.svg?style=flat&v=1)](LICENSE)
+[![License](https://img.shields.io/badge/license-OpenBSV-blue?style=flat&logo=springsecurity&logoColor=white)](LICENSE)
