@@ -1,6 +1,7 @@
 package safe
 
 import (
+	"errors"
 	"fmt"
 	"math"
 	"math/big"
@@ -12,11 +13,22 @@ const (
 	MaxInt16 = 1<<15 - 1 // 32767
 )
 
+var (
+	// ErrValueOutOfRange defines when a value is out of range
+	ErrValueOutOfRange = errors.New("value out of range")
+	// ErrValueOverflow defines when a value is overflowing the data type
+	ErrValueOverflow = errors.New("value overflow")
+	// ErrNegativeValueCannotBeConverted defines when a negative value is trying to be used with an unsigned integer
+	ErrNegativeValueCannotBeConverted = errors.New("negative value cannot be converted to unsigned integer")
+	// ErrValueExceedsLimit defines when a converted value exceeds the limit of the data type
+	ErrValueExceedsLimit = errors.New("value exceeds limit")
+)
+
 // IntToUint32 converts an int to uint32 after ensuring it’s in range.
 // Returns an error if the input is negative or exceeds the maximum value of a uint32.
 func IntToUint32(v int) (uint32, error) {
 	if v < 0 || v > math.MaxUint32 {
-		return 0, fmt.Errorf("value %d out of range", v)
+		return 0, fmt.Errorf("%w: %d", ErrValueOutOfRange, v)
 	}
 
 	return uint32(v), nil
@@ -27,7 +39,7 @@ func IntToUint32(v int) (uint32, error) {
 func Uint64ToUint32(v uint64) (uint32, error) {
 	// ^uint32(0) is the maximum value of a uint32 (all bits set).
 	if v > uint64(math.MaxUint32) {
-		return 0, fmt.Errorf("value %d overflows uint32 (max %d)", v, math.MaxUint32)
+		return 0, fmt.Errorf("uint32 %w: %d (max %d)", ErrValueOverflow, v, math.MaxUint32)
 	}
 
 	return uint32(v), nil
@@ -37,7 +49,7 @@ func Uint64ToUint32(v uint64) (uint32, error) {
 // Returns an error if the input is negative.
 func Int64ToUint64(value int64) (uint64, error) {
 	if value < 0 {
-		return 0, fmt.Errorf("negative value cannot be converted to uint64: %d", value)
+		return 0, fmt.Errorf("%w (uint64): %d", ErrNegativeValueCannotBeConverted, value)
 	}
 
 	return uint64(value), nil
@@ -47,7 +59,7 @@ func Int64ToUint64(value int64) (uint64, error) {
 // Returns an error if the input is negative.
 func IntToUint64(value int) (uint64, error) {
 	if value < 0 {
-		return 0, fmt.Errorf("negative value cannot be converted to uint64: %d", value)
+		return 0, fmt.Errorf("%w (uint64): %d", ErrNegativeValueCannotBeConverted, value)
 	}
 
 	return uint64(value), nil
@@ -57,7 +69,7 @@ func IntToUint64(value int) (uint64, error) {
 // Returns an error if the value exceeds the limits of an int.
 func Uint64ToInt(value uint64) (int, error) {
 	if value > math.MaxInt {
-		return 0, fmt.Errorf("value exceeds int limit: %d", value)
+		return 0, fmt.Errorf("%w (int): %d", ErrValueExceedsLimit, value)
 	}
 
 	return int(value), nil
@@ -67,7 +79,7 @@ func Uint64ToInt(value uint64) (int, error) {
 // Returns an error if the value is outside the range of int32.
 func Int64ToInt32(value int64) (int32, error) {
 	if value < math.MinInt32 || value > math.MaxInt32 {
-		return 0, fmt.Errorf("value out of int32 range: %d", value)
+		return 0, fmt.Errorf("%w (int32): %d", ErrValueOutOfRange, value)
 	}
 
 	return int32(value), nil
@@ -77,7 +89,7 @@ func Int64ToInt32(value int64) (int32, error) {
 // Checks if the value is within the valid int32 range.
 func IntToInt32(value int) (int32, error) {
 	if value < math.MinInt32 || value > math.MaxInt32 {
-		return 0, fmt.Errorf("value out of int32 range: %d", value)
+		return 0, fmt.Errorf("%w (int32): %d", ErrValueOutOfRange, value)
 	}
 
 	return int32(value), nil
@@ -87,7 +99,7 @@ func IntToInt32(value int) (int32, error) {
 // Checks only for negative values, as positive int32 values are always within uint32 range.
 func Int32ToUint32(value int32) (uint32, error) {
 	if value < 0 {
-		return 0, fmt.Errorf("negative value cannot be converted to uint32: %d", value)
+		return 0, fmt.Errorf("%w to uint32: %d", ErrNegativeValueCannotBeConverted, value)
 	}
 
 	return uint32(value), nil
@@ -97,7 +109,7 @@ func Int32ToUint32(value int32) (uint32, error) {
 // Checks if the value is non-negative and within the uint32 range.
 func Int64ToUint32(value int64) (uint32, error) {
 	if value < 0 {
-		return 0, fmt.Errorf("negative value cannot be converted to uint32: %d", value)
+		return 0, fmt.Errorf("%w to uint32: %d", ErrNegativeValueCannotBeConverted, value)
 	}
 
 	if value > math.MaxUint32 {
