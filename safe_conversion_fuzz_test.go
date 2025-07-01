@@ -14,7 +14,7 @@ import (
 // FuzzIntToUint32 validates IntToUint32 with random inputs.
 func FuzzIntToUint32(f *testing.F) {
 	f.Add(0)
-	f.Add(int(math.MaxUint32))
+	f.Add(math.MaxUint32)
 	f.Add(-1)
 	f.Fuzz(func(t *testing.T, v int) {
 		r, err := safe.IntToUint32(v)
@@ -63,7 +63,7 @@ func FuzzInt64ToUint64(f *testing.F) {
 func FuzzIntToUint64(f *testing.F) {
 	f.Add(0)
 	f.Add(-1)
-	f.Add(int(math.MaxInt))
+	f.Add(math.MaxInt)
 	f.Fuzz(func(t *testing.T, v int) {
 		r, err := safe.IntToUint64(v)
 		if v < 0 {
@@ -110,8 +110,8 @@ func FuzzInt64ToInt32(f *testing.F) {
 // FuzzIntToInt32 validates IntToInt32 with random inputs.
 func FuzzIntToInt32(f *testing.F) {
 	f.Add(0)
-	f.Add(int(math.MaxInt32))
-	f.Add(int(math.MinInt32))
+	f.Add(math.MaxInt32)
+	f.Add(math.MinInt32)
 	f.Fuzz(func(t *testing.T, v int) {
 		r, err := safe.IntToInt32(v)
 		if v < math.MinInt32 || v > math.MaxInt32 {
@@ -173,7 +173,7 @@ func FuzzBigWordToUint32(f *testing.F) {
 // FuzzIntToUint16 validates IntToUint16 with random inputs.
 func FuzzIntToUint16(f *testing.F) {
 	f.Add(0)
-	f.Add(int(math.MaxUint16))
+	f.Add(math.MaxUint16)
 	f.Add(-1)
 	f.Fuzz(func(t *testing.T, v int) {
 		r, err := safe.IntToUint16(v)
@@ -189,8 +189,8 @@ func FuzzIntToUint16(f *testing.F) {
 // FuzzIntToInt16 validates IntToInt16 with random inputs.
 func FuzzIntToInt16(f *testing.F) {
 	f.Add(0)
-	f.Add(int(safe.MinInt16))
-	f.Add(int(safe.MaxInt16))
+	f.Add(safe.MinInt16)
+	f.Add(safe.MaxInt16)
 	f.Fuzz(func(t *testing.T, v int) {
 		r, err := safe.IntToInt16(v)
 		if v < safe.MinInt16 || v > safe.MaxInt16 {
