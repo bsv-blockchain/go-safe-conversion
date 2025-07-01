@@ -99,7 +99,7 @@ go get -u github.com/bsv-blockchain/go-safe-conversion
 ## 📚 Documentation
 
 - **API Reference** – Dive into the godocs at [pkg.go.dev/github.com/bsv-blockchain/go-safe-conversion](https://pkg.go.dev/github.com/bsv-blockchain/go-safe-conversion)
-- **Usage Examples** – Browse practical patterns either the [examples directory](examples)
+- **Usage Examples** – Browse practical patterns either the [examples directory](examples) or the [example tests](safe_conversion_examples_test.go)
 - **Benchmarks** – Check the latest numbers in the [benchmark results](#benchmark-results)
 - **Test Suite** – Review both the [unit tests](safe_conversion_test.go) and [fuzz tests](safe_conversion_fuzz_test.go) (powered by [`testify`](https://github.com/stretchr/testify))
 
@@ -276,7 +276,7 @@ The hooks are configured in [.pre-commit-config.yaml](.pre-commit-config.yaml) a
 
 ## 🧪 Examples & Tests
 
-All unit tests and [examples](examples) run via [GitHub Actions](https://github.com/bsv-blockchain/go-safe-conversion/actions) and use [Go version 1.24.x](https://go.dev/doc/go1.24). View the [configuration file](.github/workflows/run-tests.yml).
+All unit tests and [examples](safe_conversion_examples_test.go) run via [GitHub Actions](https://github.com/bsv-blockchain/go-safe-conversion/actions) and use [Go version 1.24.x](https://go.dev/doc/go1.24). View the [configuration file](.github/workflows/run-tests.yml).
 
 Run all tests:
 
