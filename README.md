@@ -288,7 +288,7 @@ make test
 
 ## ⚡ Benchmarks
 
-Run the Go [benchmarks](template_benchmark_test.go):
+Run the Go [benchmarks](safe_conversion_benchmark_test.go):
 
 ```bash script
 make bench
