@@ -5,8 +5,7 @@ include .make/common.mk
 include .make/go.mk
 
 # Temporary makefile for initializing a new Go project template (remove this!)
-include .make/temp.mk
 
 ## Set default repository details if not provided
-REPO_NAME  ?= go-template
+REPO_NAME  ?= go-safe-conversion
 REPO_OWNER ?= bsv-blockchain
