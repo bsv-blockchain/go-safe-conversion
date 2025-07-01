@@ -27,7 +27,6 @@ func TestIntToUint32(t *testing.T) {
 	}
 
 	for _, tt := range tests {
-		tt := tt
 		t.Run(tt.name, func(t *testing.T) {
 			result, err := safe.IntToUint32(tt.input)
 			if tt.wantErr {
@@ -57,7 +56,6 @@ func TestUint64ToUint32(t *testing.T) {
 	}
 
 	for _, tt := range tests {
-		tt := tt
 		t.Run(tt.name, func(t *testing.T) {
 			result, err := safe.Uint64ToUint32(tt.input)
 			if tt.wantErr {
@@ -86,7 +84,6 @@ func TestInt64ToUint64(t *testing.T) {
 	}
 
 	for _, tt := range tests {
-		tt := tt
 		t.Run(tt.name, func(t *testing.T) {
 			result, err := safe.Int64ToUint64(tt.input)
 			if tt.wantErr {
@@ -115,7 +112,6 @@ func TestIntToUint64(t *testing.T) {
 	}
 
 	for _, tt := range tests {
-		tt := tt
 		t.Run(tt.name, func(t *testing.T) {
 			result, err := safe.IntToUint64(tt.input)
 			if tt.wantErr {
@@ -145,7 +141,6 @@ func TestUint64ToInt(t *testing.T) {
 	}
 
 	for _, tt := range tests {
-		tt := tt
 		t.Run(tt.name, func(t *testing.T) {
 			result, err := safe.Uint64ToInt(tt.input)
 			if tt.wantErr {
@@ -178,7 +173,6 @@ func TestInt64ToInt32(t *testing.T) {
 	}
 
 	for _, tt := range tests {
-		tt := tt
 		t.Run(tt.name, func(t *testing.T) {
 			result, err := safe.Int64ToInt32(tt.input)
 			if tt.wantErr {
@@ -202,15 +196,14 @@ func TestIntToInt32(t *testing.T) {
 	}{
 		{"zero value", 0, 0, false},
 		{"positive value", 100, 100, false},
-		{"max int32", int(math.MaxInt32), math.MaxInt32, false},
-		{"min int32", int(math.MinInt32), math.MinInt32, false},
+		{"max int32", math.MaxInt32, math.MaxInt32, false},
+		{"min int32", math.MinInt32, math.MinInt32, false},
 		// These tests below assume a 64-bit system where int can exceed int32 range
 		{"value too large", int(math.MaxInt32) + 1, 0, true},
 		{"value too small", int(math.MinInt32) - 1, 0, true},
 	}
 
 	for _, tt := range tests {
-		tt := tt
 		t.Run(tt.name, func(t *testing.T) {
 			result, err := safe.IntToInt32(tt.input)
 			if tt.wantErr {
@@ -240,7 +233,6 @@ func TestInt32ToUint32(t *testing.T) {
 	}
 
 	for _, tt := range tests {
-		tt := tt
 		t.Run(tt.name, func(t *testing.T) {
 			result, err := safe.Int32ToUint32(tt.input)
 			if tt.wantErr {
@@ -270,7 +262,6 @@ func TestInt64ToUint32(t *testing.T) {
 	}
 
 	for _, tt := range tests {
-		tt := tt
 		t.Run(tt.name, func(t *testing.T) {
 			result, err := safe.Int64ToUint32(tt.input)
 			if tt.wantErr {
@@ -300,7 +291,6 @@ func TestBigWordToUint32(t *testing.T) {
 	}
 
 	for _, tt := range tests {
-		tt := tt
 		t.Run(tt.name, func(t *testing.T) {
 			result, err := safe.BigWordToUint32(tt.input)
 			if tt.wantErr {
@@ -324,13 +314,12 @@ func TestIntToUint16(t *testing.T) {
 	}{
 		{"zero value", 0, 0, false},
 		{"positive value", 100, 100, false},
-		{"max uint16", int(math.MaxUint16), math.MaxUint16, false},
+		{"max uint16", math.MaxUint16, math.MaxUint16, false},
 		{"negative value", -1, 0, true},
 		{"value too large", int(math.MaxUint16) + 1, 0, true},
 	}
 
 	for _, tt := range tests {
-		tt := tt
 		t.Run(tt.name, func(t *testing.T) {
 			result, err := safe.IntToUint16(tt.input)
 			if tt.wantErr {
@@ -361,7 +350,6 @@ func TestIntToInt16(t *testing.T) {
 	}
 
 	for _, tt := range tests {
-		tt := tt
 		t.Run(tt.name, func(t *testing.T) {
 			result, err := safe.IntToInt16(tt.input)
 			if tt.wantErr {
@@ -391,7 +379,6 @@ func TestUintToUint32(t *testing.T) {
 	}
 
 	for _, tt := range tests {
-		tt := tt
 		t.Run(tt.name, func(t *testing.T) {
 			result, err := safe.UintToUint32(tt.input)
 			if tt.wantErr {
@@ -421,7 +408,6 @@ func TestTimeToUint32(t *testing.T) {
 	}
 
 	for _, tt := range tests {
-		tt := tt
 		t.Run(tt.name, func(t *testing.T) {
 			result, err := safe.TimeToUint32(tt.input)
 			if tt.wantErr {
@@ -451,7 +437,6 @@ func TestUint32ToUint8(t *testing.T) {
 	}
 
 	for _, tt := range tests {
-		tt := tt
 		t.Run(tt.name, func(t *testing.T) {
 			result, err := safe.Uint32ToUint8(tt.input)
 			if tt.wantErr {
@@ -480,7 +465,6 @@ func TestUintptrToInt(t *testing.T) {
 	}
 
 	for _, tt := range tests {
-		tt := tt
 		t.Run(tt.name, func(t *testing.T) {
 			result, err := safe.UintptrToInt(tt.input)
 			if tt.wantErr {
@@ -510,7 +494,6 @@ func TestUint64ToInt64(t *testing.T) {
 	}
 
 	for _, tt := range tests {
-		tt := tt
 		t.Run(tt.name, func(t *testing.T) {
 			result, err := safe.Uint64ToInt64(tt.input)
 			if tt.wantErr {
@@ -540,7 +523,6 @@ func TestUint32ToInt32(t *testing.T) {
 	}
 
 	for _, tt := range tests {
-		tt := tt
 		t.Run(tt.name, func(t *testing.T) {
 			result, err := safe.Uint32ToInt32(tt.input)
 			if tt.wantErr {
@@ -570,7 +552,6 @@ func TestUint64ToInt32(t *testing.T) {
 	}
 
 	for _, tt := range tests {
-		tt := tt
 		t.Run(tt.name, func(t *testing.T) {
 			result, err := safe.Uint64ToInt32(tt.input)
 			if tt.wantErr {
@@ -598,7 +579,6 @@ func TestUint32ToInt64(t *testing.T) {
 	}
 
 	for _, tt := range tests {
-		tt := tt
 		t.Run(tt.name, func(t *testing.T) {
 			result, err := safe.Uint32ToInt64(tt.input)
 			if tt.wantErr {
@@ -626,7 +606,6 @@ func TestUint32ToUint64(t *testing.T) {
 	}
 
 	for _, tt := range tests {
-		tt := tt
 		t.Run(tt.name, func(t *testing.T) {
 			result, err := safe.Uint32ToUint64(tt.input)
 			if tt.wantErr {
@@ -656,7 +635,6 @@ func TestUint64ToUint16(t *testing.T) {
 	}
 
 	for _, tt := range tests {
-		tt := tt
 		t.Run(tt.name, func(t *testing.T) {
 			result, err := safe.Uint64ToUint16(tt.input)
 			if tt.wantErr {
