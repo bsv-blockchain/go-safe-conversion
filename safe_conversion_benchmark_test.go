@@ -8,16 +8,6 @@ import (
 	safe "github.com/bsv-blockchain/go-safe-conversion"
 )
 
-var (
-	benchUint8  uint8
-	benchUint16 uint16
-	benchUint32 uint32
-	benchUint64 uint64
-	benchInt    int
-	benchInt32  int32
-	benchInt64  int64
-)
-
 // BenchmarkBigWordToUint32 benchmarks the performance of BigWordToUint32.
 func BenchmarkBigWordToUint32(b *testing.B) {
 	var r uint32
@@ -30,7 +20,7 @@ func BenchmarkBigWordToUint32(b *testing.B) {
 			b.Fatal(err)
 		}
 	}
-	benchUint32 = r
+	_ = r
 }
 
 // BenchmarkInt32ToUint32 benchmarks the performance of Int32ToUint32.
@@ -45,7 +35,7 @@ func BenchmarkInt32ToUint32(b *testing.B) {
 			b.Fatal(err)
 		}
 	}
-	benchUint32 = r
+	_ = r
 }
 
 // BenchmarkInt64ToInt32 benchmarks the performance of Int64ToInt32.
@@ -60,7 +50,7 @@ func BenchmarkInt64ToInt32(b *testing.B) {
 			b.Fatal(err)
 		}
 	}
-	benchInt32 = r
+	_ = r
 }
 
 // BenchmarkInt64ToUint32 benchmarks the performance of Int64ToUint32.
@@ -75,7 +65,7 @@ func BenchmarkInt64ToUint32(b *testing.B) {
 			b.Fatal(err)
 		}
 	}
-	benchUint32 = r
+	_ = r
 }
 
 // BenchmarkInt64ToUint64 benchmarks the performance of Int64ToUint64.
@@ -90,7 +80,7 @@ func BenchmarkInt64ToUint64(b *testing.B) {
 			b.Fatal(err)
 		}
 	}
-	benchUint64 = r
+	_ = r
 }
 
 // BenchmarkIntToInt16 benchmarks the performance of IntToInt16.
@@ -106,7 +96,7 @@ func BenchmarkIntToInt16(b *testing.B) {
 		}
 	}
 	// assign to global to avoid compiler optimization
-	benchInt32 = int32(r)
+	_ = int32(r)
 }
 
 // BenchmarkIntToInt32 benchmarks the performance of IntToInt32.
@@ -121,7 +111,7 @@ func BenchmarkIntToInt32(b *testing.B) {
 			b.Fatal(err)
 		}
 	}
-	benchInt32 = r
+	_ = r
 }
 
 // BenchmarkIntToUint16 benchmarks the performance of IntToUint16.
@@ -136,7 +126,7 @@ func BenchmarkIntToUint16(b *testing.B) {
 			b.Fatal(err)
 		}
 	}
-	benchUint16 = r
+	_ = r
 }
 
 // BenchmarkIntToUint32 benchmarks the performance of IntToUint32.
@@ -151,7 +141,7 @@ func BenchmarkIntToUint32(b *testing.B) {
 			b.Fatal(err)
 		}
 	}
-	benchUint32 = r
+	_ = r
 }
 
 // BenchmarkIntToUint64 benchmarks the performance of IntToUint64.
@@ -166,7 +156,7 @@ func BenchmarkIntToUint64(b *testing.B) {
 			b.Fatal(err)
 		}
 	}
-	benchUint64 = r
+	_ = r
 }
 
 // BenchmarkTimeToUint32 benchmarks the performance of TimeToUint32.
@@ -181,7 +171,7 @@ func BenchmarkTimeToUint32(b *testing.B) {
 			b.Fatal(err)
 		}
 	}
-	benchUint32 = r
+	_ = r
 }
 
 // BenchmarkUint32ToInt32 benchmarks the performance of Uint32ToInt32.
@@ -196,7 +186,7 @@ func BenchmarkUint32ToInt32(b *testing.B) {
 			b.Fatal(err)
 		}
 	}
-	benchInt32 = r
+	_ = r
 }
 
 // BenchmarkUint32ToInt64 benchmarks the performance of Uint32ToInt64.
@@ -207,7 +197,7 @@ func BenchmarkUint32ToInt64(b *testing.B) {
 	for i := 0; i < b.N; i++ {
 		r, _ = safe.Uint32ToInt64(v)
 	}
-	benchInt64 = r
+	_ = r
 }
 
 // BenchmarkUint32ToUint64 benchmarks the performance of Uint32ToUint64.
@@ -218,7 +208,7 @@ func BenchmarkUint32ToUint64(b *testing.B) {
 	for i := 0; i < b.N; i++ {
 		r, _ = safe.Uint32ToUint64(v)
 	}
-	benchUint64 = r
+	_ = r
 }
 
 // BenchmarkUint32ToUint8 benchmarks the performance of Uint32ToUint8.
@@ -233,7 +223,7 @@ func BenchmarkUint32ToUint8(b *testing.B) {
 			b.Fatal(err)
 		}
 	}
-	benchUint8 = r
+	_ = r // prevent compiler optimization
 }
 
 // BenchmarkUint64ToInt benchmarks the performance of Uint64ToInt.
@@ -248,7 +238,7 @@ func BenchmarkUint64ToInt(b *testing.B) {
 			b.Fatal(err)
 		}
 	}
-	benchInt = r
+	_ = r
 }
 
 // BenchmarkUint64ToInt32 benchmarks the performance of Uint64ToInt32.
@@ -263,7 +253,7 @@ func BenchmarkUint64ToInt32(b *testing.B) {
 			b.Fatal(err)
 		}
 	}
-	benchInt32 = r
+	_ = r
 }
 
 // BenchmarkUint64ToInt64 benchmarks the performance of Uint64ToInt64.
@@ -278,7 +268,7 @@ func BenchmarkUint64ToInt64(b *testing.B) {
 			b.Fatal(err)
 		}
 	}
-	benchInt64 = r
+	_ = r
 }
 
 // BenchmarkUint64ToUint16 benchmarks the performance of Uint64ToUint16.
@@ -293,7 +283,7 @@ func BenchmarkUint64ToUint16(b *testing.B) {
 			b.Fatal(err)
 		}
 	}
-	benchUint16 = r
+	_ = r
 }
 
 // BenchmarkUint64ToUint32 benchmarks the performance of Uint64ToUint32.
@@ -308,7 +298,7 @@ func BenchmarkUint64ToUint32(b *testing.B) {
 			b.Fatal(err)
 		}
 	}
-	benchUint32 = r
+	_ = r
 }
 
 // BenchmarkUintptrToInt benchmarks the performance of UintptrToInt.
@@ -323,7 +313,7 @@ func BenchmarkUintptrToInt(b *testing.B) {
 			b.Fatal(err)
 		}
 	}
-	benchInt = r
+	_ = r
 }
 
 // BenchmarkUintToUint32 benchmarks the performance of UintToUint32.
@@ -338,5 +328,5 @@ func BenchmarkUintToUint32(b *testing.B) {
 			b.Fatal(err)
 		}
 	}
-	benchUint32 = r
+	_ = r
 }

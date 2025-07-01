@@ -298,9 +298,30 @@ make bench
 
 ### Benchmark Results
 
-| Benchmark                           | Iterations | ns/op | B/op | allocs/op |
-|-------------------------------------|------------|------:|-----:|----------:|
-|                                     |            |       |      |           |
+| Benchmark                                            | Iterations | ns/op  | B/op | allocs/op |
+|------------------------------------------------------|------------|--------|------|-----------|
+| [BigWordToUint32](safe_conversion_benchmark_test.go) | 554149441  | 2.052  | 0    | 0         |
+| [Int32ToUint32](safe_conversion_benchmark_test.go)   | 1000000000 | 0.3149 | 0    | 0         |
+| [Int64ToInt32](safe_conversion_benchmark_test.go)    | 1000000000 | 0.3136 | 0    | 0         |
+| [Int64ToUint32](safe_conversion_benchmark_test.go)   | 573749866  | 2.078  | 0    | 0         |
+| [Int64ToUint64](safe_conversion_benchmark_test.go)   | 1000000000 | 0.3125 | 0    | 0         |
+| [IntToInt16](safe_conversion_benchmark_test.go)      | 1000000000 | 0.3113 | 0    | 0         |
+| [IntToInt32](safe_conversion_benchmark_test.go)      | 1000000000 | 0.3112 | 0    | 0         |
+| [IntToUint16](safe_conversion_benchmark_test.go)     | 575023266  | 2.080  | 0    | 0         |
+| [IntToUint32](safe_conversion_benchmark_test.go)     | 1000000000 | 0.3112 | 0    | 0         |
+| [IntToUint64](safe_conversion_benchmark_test.go)     | 1000000000 | 0.3113 | 0    | 0         |
+| [TimeToUint32](safe_conversion_benchmark_test.go)    | 580299204  | 2.068  | 0    | 0         |
+| [Uint32ToInt32](safe_conversion_benchmark_test.go)   | 1000000000 | 0.3113 | 0    | 0         |
+| [Uint32ToInt64](safe_conversion_benchmark_test.go)   | 1000000000 | 0.3111 | 0    | 0         |
+| [Uint32ToUint64](safe_conversion_benchmark_test.go)  | 1000000000 | 0.3112 | 0    | 0         |
+| [Uint32ToUint8](safe_conversion_benchmark_test.go)   | 1000000000 | 0.3113 | 0    | 0         |
+| [Uint64ToInt](safe_conversion_benchmark_test.go)     | 1000000000 | 0.3114 | 0    | 0         |
+| [Uint64ToInt32](safe_conversion_benchmark_test.go)   | 1000000000 | 0.3112 | 0    | 0         |
+| [Uint64ToInt64](safe_conversion_benchmark_test.go)   | 1000000000 | 0.3113 | 0    | 0         |
+| [Uint64ToUint16](safe_conversion_benchmark_test.go)  | 1000000000 | 0.3113 | 0    | 0         |
+| [Uint64ToUint32](safe_conversion_benchmark_test.go)  | 1000000000 | 0.3114 | 0    | 0         |
+| [UintptrToInt](safe_conversion_benchmark_test.go)    | 1000000000 | 0.3114 | 0    | 0         |
+| [UintToUint32](safe_conversion_benchmark_test.go)    | 1000000000 | 0.3191 | 0    | 0         |
 
 > These benchmarks reflect fast, allocation-free lookups for most retrieval functions, ensuring optimal performance in production environments.
 > Performance benchmarks for the core functions in this library, executed on an Apple M1 Max (ARM64).
