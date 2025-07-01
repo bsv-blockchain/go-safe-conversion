@@ -1,4 +1,4 @@
-package safe_test
+package safeconversion_test
 
 import (
 	"math"
@@ -9,6 +9,7 @@ import (
 	safe "github.com/bsv-blockchain/go-safe-conversion"
 )
 
+// TestIntToUint32 tests the conversion from int to uint32.
 func TestIntToUint32(t *testing.T) {
 	tests := []struct {
 		name    string
@@ -38,6 +39,7 @@ func TestIntToUint32(t *testing.T) {
 	}
 }
 
+// TestUint64ToUint32 tests the conversion from uint64 to uint32.
 func TestUint64ToUint32(t *testing.T) {
 	tests := []struct {
 		name    string
@@ -67,6 +69,7 @@ func TestUint64ToUint32(t *testing.T) {
 	}
 }
 
+// TestInt64ToUint64 tests the conversion from int64 to uint64.
 func TestInt64ToUint64(t *testing.T) {
 	tests := []struct {
 		name    string
@@ -95,6 +98,7 @@ func TestInt64ToUint64(t *testing.T) {
 	}
 }
 
+// TestIntToUint64 tests the conversion from int to uint64.
 func TestIntToUint64(t *testing.T) {
 	tests := []struct {
 		name    string
@@ -123,6 +127,7 @@ func TestIntToUint64(t *testing.T) {
 	}
 }
 
+// TestUint64ToInt tests the conversion from uint64 to int.
 func TestUint64ToInt(t *testing.T) {
 	tests := []struct {
 		name    string
@@ -152,6 +157,7 @@ func TestUint64ToInt(t *testing.T) {
 	}
 }
 
+// TestInt64ToInt32 tests the conversion from int64 to int32.
 func TestInt64ToInt32(t *testing.T) {
 	tests := []struct {
 		name    string
@@ -184,6 +190,7 @@ func TestInt64ToInt32(t *testing.T) {
 	}
 }
 
+// TestIntToInt32 tests the conversion from int64 to int32.
 func TestIntToInt32(t *testing.T) {
 	tests := []struct {
 		name    string
@@ -215,6 +222,7 @@ func TestIntToInt32(t *testing.T) {
 	}
 }
 
+// TestInt32ToUint32 tests the conversion from int32 to uint32.
 func TestInt32ToUint32(t *testing.T) {
 	tests := []struct {
 		name    string
@@ -244,6 +252,7 @@ func TestInt32ToUint32(t *testing.T) {
 	}
 }
 
+// TestInt64ToUint32 tests the conversion from int64 to uint32.
 func TestInt64ToUint32(t *testing.T) {
 	tests := []struct {
 		name    string
@@ -273,6 +282,7 @@ func TestInt64ToUint32(t *testing.T) {
 	}
 }
 
+// TestBigWordToUint32 tests the conversion from big.Word to uint32.
 func TestBigWordToUint32(t *testing.T) {
 	tests := []struct {
 		name    string
@@ -302,6 +312,7 @@ func TestBigWordToUint32(t *testing.T) {
 	}
 }
 
+// TestIntToUint16 tests the conversion from int to uint16.
 func TestIntToUint16(t *testing.T) {
 	tests := []struct {
 		name    string
@@ -331,6 +342,7 @@ func TestIntToUint16(t *testing.T) {
 	}
 }
 
+// TestIntToInt16 tests the conversion from int to int16.
 func TestIntToInt16(t *testing.T) {
 	tests := []struct {
 		name    string
@@ -361,6 +373,7 @@ func TestIntToInt16(t *testing.T) {
 	}
 }
 
+// TestUintToUint32 tests the conversion from uint to uint32.
 func TestUintToUint32(t *testing.T) {
 	tests := []struct {
 		name    string
@@ -390,6 +403,7 @@ func TestUintToUint32(t *testing.T) {
 	}
 }
 
+// TestTimeToUint32 tests the conversion from time.Time to uint32.
 func TestTimeToUint32(t *testing.T) {
 	tests := []struct {
 		name    string
@@ -419,6 +433,7 @@ func TestTimeToUint32(t *testing.T) {
 	}
 }
 
+// TestUint32ToUint8 tests the conversion from uint32 to uint8.
 func TestUint32ToUint8(t *testing.T) {
 	tests := []struct {
 		name    string
@@ -448,6 +463,7 @@ func TestUint32ToUint8(t *testing.T) {
 	}
 }
 
+// TestUintptrToInt tests the conversion from uintptr to int.
 func TestUintptrToInt(t *testing.T) {
 	tests := []struct {
 		name    string
@@ -476,6 +492,7 @@ func TestUintptrToInt(t *testing.T) {
 	}
 }
 
+// TestUint64ToInt64 tests the conversion from uint64 to int64.
 func TestUint64ToInt64(t *testing.T) {
 	tests := []struct {
 		name    string
@@ -505,6 +522,7 @@ func TestUint64ToInt64(t *testing.T) {
 	}
 }
 
+// TestUint32ToInt32 tests the conversion from uint32 to int32.
 func TestUint32ToInt32(t *testing.T) {
 	tests := []struct {
 		name    string
@@ -534,6 +552,7 @@ func TestUint32ToInt32(t *testing.T) {
 	}
 }
 
+// TestUint64ToInt32 tests the conversion from uint64 to int32.
 func TestUint64ToInt32(t *testing.T) {
 	tests := []struct {
 		name    string
@@ -563,6 +582,7 @@ func TestUint64ToInt32(t *testing.T) {
 	}
 }
 
+// TestUint32ToInt64 tests the conversion from uint32 to int64.
 func TestUint32ToInt64(t *testing.T) {
 	tests := []struct {
 		name    string
@@ -590,6 +610,7 @@ func TestUint32ToInt64(t *testing.T) {
 	}
 }
 
+// TestUint32ToUint64 tests the conversion from uint32 to uint64.
 func TestUint32ToUint64(t *testing.T) {
 	tests := []struct {
 		name    string
@@ -617,6 +638,7 @@ func TestUint32ToUint64(t *testing.T) {
 	}
 }
 
+// TestUint64ToUint16 tests the conversion from uint64 to uint16.
 func TestUint64ToUint16(t *testing.T) {
 	tests := []struct {
 		name    string

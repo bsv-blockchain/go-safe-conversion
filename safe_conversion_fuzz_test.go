@@ -1,1 +1,1 @@
-package safe
+package safeconversion_test

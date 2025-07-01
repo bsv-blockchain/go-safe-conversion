@@ -1,7 +1,7 @@
-// Package safe provides utilities for safely converting between various numeric types.
+// Package safeconversion provides utilities for safely converting between various numeric types.
 // The package ensures proper range checks, overflow detection, and meaningful error messages
 // when conversions fail due to invalid input or range violations.
-package safe
+package safeconversion
 
 import (
 	"errors"
@@ -30,7 +30,7 @@ var (
 )
 
 // IntToUint32 converts an int to uint32 after ensuring it’s in range.
-// Returns an error if the input is negative or exceeds the maximum value of a uint32.
+// Returns an error if the input is negative or exceeds the maximum value of an uint32.
 func IntToUint32(v int) (uint32, error) {
 	if v < 0 || v > math.MaxUint32 {
 		return 0, fmt.Errorf("%w: %d", ErrValueOutOfRange, v)
@@ -39,10 +39,10 @@ func IntToUint32(v int) (uint32, error) {
 	return uint32(v), nil
 }
 
-// Uint64ToUint32 converts a uint64 value to a uint32 value after ensuring it fits into 32 bits.
+// Uint64ToUint32 converts an uint64 value to an uint32 value after ensuring it fits into 32 bits.
 // Returns an error if the input value is too large.
 func Uint64ToUint32(v uint64) (uint32, error) {
-	// ^uint32(0) is the maximum value of a uint32 (all bits set).
+	// ^uint32(0) is the maximum value of an uint32 (all-bits set).
 	if v > uint64(math.MaxUint32) {
 		return 0, fmt.Errorf("uint32 %w: %d (max %d)", ErrValueOverflow, v, math.MaxUint32)
 	}
@@ -70,7 +70,7 @@ func IntToUint64(value int) (uint64, error) {
 	return uint64(value), nil
 }
 
-// Uint64ToInt safely converts a uint64 to int.
+// Uint64ToInt safely converts an uint64 to int.
 // Returns an error if the value exceeds the limits of an int.
 func Uint64ToInt(value uint64) (int, error) {
 	if value > math.MaxInt {
@@ -101,7 +101,7 @@ func IntToInt32(value int) (int32, error) {
 }
 
 // Int32ToUint32 safely converts an int32 to uint32.
-// Checks only for negative values, as positive int32 values are always within uint32 range.
+// Checks only for negative values, as positive int32 values are always within the uint32 range.
 func Int32ToUint32(value int32) (uint32, error) {
 	if value < 0 {
 		return 0, fmt.Errorf("%w to uint32: %d", ErrNegativeValueCannotBeConverted, value)
@@ -166,7 +166,7 @@ func IntToInt16(value int) (int16, error) {
 	return int16(value), nil
 }
 
-// UintToUint32 safely converts a uint to uint32.
+// UintToUint32 safely converts an uint to uint32.
 // Checks if the value exceeds the uint32 range.
 func UintToUint32(value uint) (uint32, error) {
 	if value > math.MaxUint32 {
@@ -191,7 +191,7 @@ func TimeToUint32(value time.Time) (uint32, error) {
 	return uint32(timestamp), nil
 }
 
-// Uint32ToUint8 safely converts a uint32 to uint8.
+// Uint32ToUint8 safely converts an uint32 to uint8.
 // Checks if the value exceeds the uint8 range.
 func Uint32ToUint8(value uint32) (uint8, error) {
 	if value > math.MaxUint8 {
@@ -201,7 +201,7 @@ func Uint32ToUint8(value uint32) (uint8, error) {
 	return uint8(value), nil
 }
 
-// UintptrToInt safely converts a uintptr to int.
+// UintptrToInt safely converts an uintptr to int.
 // Checks if the value exceeds the maximum int range.
 func UintptrToInt(value uintptr) (int, error) {
 	if value > uintptr(math.MaxInt) {
@@ -211,7 +211,7 @@ func UintptrToInt(value uintptr) (int, error) {
 	return int(value), nil
 }
 
-// Uint64ToInt64 safely converts a uint64 to int64.
+// Uint64ToInt64 safely converts an uint64 to int64.
 // Checks if the value exceeds the maximum int64 range.
 func Uint64ToInt64(value uint64) (int64, error) {
 	if value > math.MaxInt64 {
@@ -221,7 +221,7 @@ func Uint64ToInt64(value uint64) (int64, error) {
 	return int64(value), nil
 }
 
-// Uint32ToInt32 safely converts a uint32 to int32.
+// Uint32ToInt32 safely converts an uint32 to int32.
 // Checks if the value exceeds the maximum int32 range.
 func Uint32ToInt32(value uint32) (int32, error) {
 	if value > math.MaxInt32 {
@@ -231,7 +231,7 @@ func Uint32ToInt32(value uint32) (int32, error) {
 	return int32(value), nil
 }
 
-// Uint64ToInt32 safely converts a uint64 to int32.
+// Uint64ToInt32 safely converts an uint64 to int32.
 // Checks if the value exceeds the int32 range or if it's negative.
 func Uint64ToInt32(value uint64) (int32, error) {
 	if value > math.MaxInt32 {
@@ -241,19 +241,19 @@ func Uint64ToInt32(value uint64) (int32, error) {
 	return int32(value), nil
 }
 
-// Uint32ToInt64 safely converts a uint32 to int64.
+// Uint32ToInt64 safely converts an uint32 to int64.
 // Since all uint32 values are within the valid int64 range, the conversion is always safe.
 func Uint32ToInt64(value uint32) (int64, error) {
 	return int64(value), nil
 }
 
-// Uint32ToUint64 safely converts a uint32 to uint64.
+// Uint32ToUint64 safely converts an uint32 to uint64.
 // Since all uint32 values fit within the uint64 range, the conversion is always safe.
 func Uint32ToUint64(value uint32) (uint64, error) {
 	return uint64(value), nil
 }
 
-// Uint64ToUint16 safely converts a uint64 to uint16.
+// Uint64ToUint16 safely converts an uint64 to uint16.
 // Checks if the value exceeds the uint16 range.
 func Uint64ToUint16(value uint64) (uint16, error) {
 	if value > math.MaxUint16 {
