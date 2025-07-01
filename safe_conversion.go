@@ -1,3 +1,6 @@
+// Package safe provides utilities for safely converting between various numeric types.
+// The package ensures proper range checks, overflow detection, and meaningful error messages
+// when conversions fail due to invalid input or range violations.
 package safe
 
 import (
@@ -9,7 +12,9 @@ import (
 )
 
 const (
-	MinInt16 = -1 << 15  // -32768
+	// MinInt16 defines the minimum integer value for an int16
+	MinInt16 = -1 << 15 // -32768
+	// MaxInt16 defines the maximum integer value for an int16
 	MaxInt16 = 1<<15 - 1 // 32767
 )
 
@@ -113,7 +118,7 @@ func Int64ToUint32(value int64) (uint32, error) {
 	}
 
 	if value > math.MaxUint32 {
-		return 0, fmt.Errorf("value exceeds uint32 range: %d", value)
+		return 0, fmt.Errorf("%w (uint32): %d", ErrValueOutOfRange, value)
 	}
 
 	return uint32(value), nil
@@ -131,7 +136,7 @@ func BigWordToUint32(value big.Word) (uint32, error) {
 	valueUint64 := uint64(value)
 
 	if valueUint64 > math.MaxUint32 {
-		return 0, fmt.Errorf("big.Word exceeds uint32 range: %d", valueUint64)
+		return 0, fmt.Errorf("big.Word %w (uint32): %d", ErrValueExceedsLimit, valueUint64)
 	}
 
 	return uint32(valueUint64), nil
@@ -141,11 +146,11 @@ func BigWordToUint32(value big.Word) (uint32, error) {
 // Checks if the value is non-negative and within the uint16 range.
 func IntToUint16(value int) (uint16, error) {
 	if value < 0 {
-		return 0, fmt.Errorf("negative value cannot be converted to uint16: %d", value)
+		return 0, fmt.Errorf("%w to uint16: %d", ErrNegativeValueCannotBeConverted, value)
 	}
 
 	if value > math.MaxUint16 {
-		return 0, fmt.Errorf("value exceeds uint16 range: %d", value)
+		return 0, fmt.Errorf("%w (uint16): %d", ErrValueExceedsLimit, value)
 	}
 
 	return uint16(value), nil
@@ -155,7 +160,7 @@ func IntToUint16(value int) (uint16, error) {
 // Checks if the value is within the valid int16 range.
 func IntToInt16(value int) (int16, error) {
 	if value < MinInt16 || value > MaxInt16 {
-		return 0, fmt.Errorf("value out of int16 range: %d", value)
+		return 0, fmt.Errorf("%w (int16): %d", ErrValueOutOfRange, value)
 	}
 
 	return int16(value), nil
@@ -165,7 +170,7 @@ func IntToInt16(value int) (int16, error) {
 // Checks if the value exceeds the uint32 range.
 func UintToUint32(value uint) (uint32, error) {
 	if value > math.MaxUint32 {
-		return 0, fmt.Errorf("value exceeds uint32 range: %d", value)
+		return 0, fmt.Errorf("%w (uint32): %d", ErrValueOutOfRange, value)
 	}
 
 	return uint32(value), nil
@@ -176,11 +181,11 @@ func UintToUint32(value uint) (uint32, error) {
 func TimeToUint32(value time.Time) (uint32, error) {
 	timestamp := value.Unix()
 	if timestamp < 0 {
-		return 0, fmt.Errorf("negative timestamp cannot be converted to uint32: %d", timestamp)
+		return 0, fmt.Errorf("%w to uint32: %d", ErrNegativeValueCannotBeConverted, timestamp)
 	}
 
 	if timestamp > math.MaxUint32 {
-		return 0, fmt.Errorf("timestamp exceeds uint32 range: %d", timestamp)
+		return 0, fmt.Errorf("%w (uint32): %d", ErrValueOutOfRange, timestamp)
 	}
 
 	return uint32(timestamp), nil
@@ -190,7 +195,7 @@ func TimeToUint32(value time.Time) (uint32, error) {
 // Checks if the value exceeds the uint8 range.
 func Uint32ToUint8(value uint32) (uint8, error) {
 	if value > math.MaxUint8 {
-		return 0, fmt.Errorf("value exceeds uint8 range: %d", value)
+		return 0, fmt.Errorf("%w (uint8): %d", ErrValueOutOfRange, value)
 	}
 
 	return uint8(value), nil
@@ -200,7 +205,7 @@ func Uint32ToUint8(value uint32) (uint8, error) {
 // Checks if the value exceeds the maximum int range.
 func UintptrToInt(value uintptr) (int, error) {
 	if value > uintptr(math.MaxInt) {
-		return 0, fmt.Errorf("value exceeds int range: %d", value)
+		return 0, fmt.Errorf("%w (int): %d", ErrValueOutOfRange, value)
 	}
 
 	return int(value), nil
@@ -210,7 +215,7 @@ func UintptrToInt(value uintptr) (int, error) {
 // Checks if the value exceeds the maximum int64 range.
 func Uint64ToInt64(value uint64) (int64, error) {
 	if value > math.MaxInt64 {
-		return 0, fmt.Errorf("value exceeds int64 range: %d", value)
+		return 0, fmt.Errorf("%w (int64): %d", ErrValueOutOfRange, value)
 	}
 
 	return int64(value), nil
@@ -220,7 +225,7 @@ func Uint64ToInt64(value uint64) (int64, error) {
 // Checks if the value exceeds the maximum int32 range.
 func Uint32ToInt32(value uint32) (int32, error) {
 	if value > math.MaxInt32 {
-		return 0, fmt.Errorf("value exceeds int32 range: %d", value)
+		return 0, fmt.Errorf("%w (int32): %d", ErrValueOutOfRange, value)
 	}
 
 	return int32(value), nil
@@ -230,7 +235,7 @@ func Uint32ToInt32(value uint32) (int32, error) {
 // Checks if the value exceeds the int32 range or if it's negative.
 func Uint64ToInt32(value uint64) (int32, error) {
 	if value > math.MaxInt32 {
-		return 0, fmt.Errorf("value exceeds int32 range: %d", value)
+		return 0, fmt.Errorf("%w (int32): %d", ErrValueOutOfRange, value)
 	}
 
 	return int32(value), nil
@@ -252,7 +257,7 @@ func Uint32ToUint64(value uint32) (uint64, error) {
 // Checks if the value exceeds the uint16 range.
 func Uint64ToUint16(value uint64) (uint16, error) {
 	if value > math.MaxUint16 {
-		return 0, fmt.Errorf("value exceeds uint16 range: %d", value)
+		return 0, fmt.Errorf("%w (uint16): %d", ErrValueOutOfRange, value)
 	}
 
 	return uint16(value), nil
