@@ -7,6 +7,8 @@ import (
 	"time"
 
 	safe "github.com/bsv-blockchain/go-safe-conversion"
+	"github.com/stretchr/testify/assert"
+	"github.com/stretchr/testify/require"
 )
 
 // TestIntToUint32 tests the conversion from int to uint32.
@@ -25,16 +27,16 @@ func TestIntToUint32(t *testing.T) {
 	}
 
 	for _, tt := range tests {
+		tt := tt
 		t.Run(tt.name, func(t *testing.T) {
 			result, err := safe.IntToUint32(tt.input)
-			if (err != nil) != tt.wantErr {
-				t.Errorf("IntToUint32(%d) error = %v, wantErr %v", tt.input, err, tt.wantErr)
+			if tt.wantErr {
+				require.Error(t, err)
 				return
 			}
 
-			if !tt.wantErr && result != tt.expect {
-				t.Errorf("IntToUint32(%d) = %d, want %d", tt.input, result, tt.expect)
-			}
+			require.NoError(t, err)
+			assert.Equal(t, tt.expect, result)
 		})
 	}
 }
@@ -55,16 +57,16 @@ func TestUint64ToUint32(t *testing.T) {
 	}
 
 	for _, tt := range tests {
+		tt := tt
 		t.Run(tt.name, func(t *testing.T) {
 			result, err := safe.Uint64ToUint32(tt.input)
-			if (err != nil) != tt.wantErr {
-				t.Errorf("Uint64ToUint32(%d) error = %v, wantErr %v", tt.input, err, tt.wantErr)
+			if tt.wantErr {
+				require.Error(t, err)
 				return
 			}
 
-			if !tt.wantErr && result != tt.expect {
-				t.Errorf("Uint64ToUint32(%d) = %d, want %d", tt.input, result, tt.expect)
-			}
+			require.NoError(t, err)
+			assert.Equal(t, tt.expect, result)
 		})
 	}
 }
@@ -84,16 +86,16 @@ func TestInt64ToUint64(t *testing.T) {
 	}
 
 	for _, tt := range tests {
+		tt := tt
 		t.Run(tt.name, func(t *testing.T) {
 			result, err := safe.Int64ToUint64(tt.input)
-			if (err != nil) != tt.wantErr {
-				t.Errorf("Int64ToUint64(%d) error = %v, wantErr %v", tt.input, err, tt.wantErr)
+			if tt.wantErr {
+				require.Error(t, err)
 				return
 			}
 
-			if !tt.wantErr && result != tt.expect {
-				t.Errorf("Int64ToUint64(%d) = %d, want %d", tt.input, result, tt.expect)
-			}
+			require.NoError(t, err)
+			assert.Equal(t, tt.expect, result)
 		})
 	}
 }
@@ -113,16 +115,16 @@ func TestIntToUint64(t *testing.T) {
 	}
 
 	for _, tt := range tests {
+		tt := tt
 		t.Run(tt.name, func(t *testing.T) {
 			result, err := safe.IntToUint64(tt.input)
-			if (err != nil) != tt.wantErr {
-				t.Errorf("IntToUint64(%d) error = %v, wantErr %v", tt.input, err, tt.wantErr)
+			if tt.wantErr {
+				require.Error(t, err)
 				return
 			}
 
-			if !tt.wantErr && result != tt.expect {
-				t.Errorf("IntToUint64(%d) = %d, want %d", tt.input, result, tt.expect)
-			}
+			require.NoError(t, err)
+			assert.Equal(t, tt.expect, result)
 		})
 	}
 }
@@ -143,16 +145,16 @@ func TestUint64ToInt(t *testing.T) {
 	}
 
 	for _, tt := range tests {
+		tt := tt
 		t.Run(tt.name, func(t *testing.T) {
 			result, err := safe.Uint64ToInt(tt.input)
-			if (err != nil) != tt.wantErr {
-				t.Errorf("Uint64ToInt(%d) error = %v, wantErr %v", tt.input, err, tt.wantErr)
+			if tt.wantErr {
+				require.Error(t, err)
 				return
 			}
 
-			if !tt.wantErr && result != tt.expect {
-				t.Errorf("Uint64ToInt(%d) = %d, want %d", tt.input, result, tt.expect)
-			}
+			require.NoError(t, err)
+			assert.Equal(t, tt.expect, result)
 		})
 	}
 }
@@ -176,16 +178,16 @@ func TestInt64ToInt32(t *testing.T) {
 	}
 
 	for _, tt := range tests {
+		tt := tt
 		t.Run(tt.name, func(t *testing.T) {
 			result, err := safe.Int64ToInt32(tt.input)
-			if (err != nil) != tt.wantErr {
-				t.Errorf("Int64ToInt32(%d) error = %v, wantErr %v", tt.input, err, tt.wantErr)
+			if tt.wantErr {
+				require.Error(t, err)
 				return
 			}
 
-			if !tt.wantErr && result != tt.expect {
-				t.Errorf("Int64ToInt32(%d) = %d, want %d", tt.input, result, tt.expect)
-			}
+			require.NoError(t, err)
+			assert.Equal(t, tt.expect, result)
 		})
 	}
 }
@@ -208,16 +210,16 @@ func TestIntToInt32(t *testing.T) {
 	}
 
 	for _, tt := range tests {
+		tt := tt
 		t.Run(tt.name, func(t *testing.T) {
 			result, err := safe.IntToInt32(tt.input)
-			if (err != nil) != tt.wantErr {
-				t.Errorf("IntToInt32(%d) error = %v, wantErr %v", tt.input, err, tt.wantErr)
+			if tt.wantErr {
+				require.Error(t, err)
 				return
 			}
 
-			if !tt.wantErr && result != tt.expect {
-				t.Errorf("IntToInt32(%d) = %d, want %d", tt.input, result, tt.expect)
-			}
+			require.NoError(t, err)
+			assert.Equal(t, tt.expect, result)
 		})
 	}
 }
@@ -238,16 +240,16 @@ func TestInt32ToUint32(t *testing.T) {
 	}
 
 	for _, tt := range tests {
+		tt := tt
 		t.Run(tt.name, func(t *testing.T) {
 			result, err := safe.Int32ToUint32(tt.input)
-			if (err != nil) != tt.wantErr {
-				t.Errorf("Int32ToUint32(%d) error = %v, wantErr %v", tt.input, err, tt.wantErr)
+			if tt.wantErr {
+				require.Error(t, err)
 				return
 			}
 
-			if !tt.wantErr && result != tt.expect {
-				t.Errorf("Int32ToUint32(%d) = %d, want %d", tt.input, result, tt.expect)
-			}
+			require.NoError(t, err)
+			assert.Equal(t, tt.expect, result)
 		})
 	}
 }
@@ -268,16 +270,16 @@ func TestInt64ToUint32(t *testing.T) {
 	}
 
 	for _, tt := range tests {
+		tt := tt
 		t.Run(tt.name, func(t *testing.T) {
 			result, err := safe.Int64ToUint32(tt.input)
-			if (err != nil) != tt.wantErr {
-				t.Errorf("Int64ToUint32(%d) error = %v, wantErr %v", tt.input, err, tt.wantErr)
+			if tt.wantErr {
+				require.Error(t, err)
 				return
 			}
 
-			if !tt.wantErr && result != tt.expect {
-				t.Errorf("Int64ToUint32(%d) = %d, want %d", tt.input, result, tt.expect)
-			}
+			require.NoError(t, err)
+			assert.Equal(t, tt.expect, result)
 		})
 	}
 }
@@ -298,16 +300,16 @@ func TestBigWordToUint32(t *testing.T) {
 	}
 
 	for _, tt := range tests {
+		tt := tt
 		t.Run(tt.name, func(t *testing.T) {
 			result, err := safe.BigWordToUint32(tt.input)
-			if (err != nil) != tt.wantErr {
-				t.Errorf("BigWordToUint32(%v) error = %v, wantErr %v", tt.input, err, tt.wantErr)
+			if tt.wantErr {
+				require.Error(t, err)
 				return
 			}
 
-			if !tt.wantErr && result != tt.expect {
-				t.Errorf("BigWordToUint32(%v) = %d, want %d", tt.input, result, tt.expect)
-			}
+			require.NoError(t, err)
+			assert.Equal(t, tt.expect, result)
 		})
 	}
 }
@@ -328,16 +330,16 @@ func TestIntToUint16(t *testing.T) {
 	}
 
 	for _, tt := range tests {
+		tt := tt
 		t.Run(tt.name, func(t *testing.T) {
 			result, err := safe.IntToUint16(tt.input)
-			if (err != nil) != tt.wantErr {
-				t.Errorf("IntToUint16(%d) error = %v, wantErr %v", tt.input, err, tt.wantErr)
+			if tt.wantErr {
+				require.Error(t, err)
 				return
 			}
 
-			if !tt.wantErr && result != tt.expect {
-				t.Errorf("IntToUint16(%d) = %d, want %d", tt.input, result, tt.expect)
-			}
+			require.NoError(t, err)
+			assert.Equal(t, tt.expect, result)
 		})
 	}
 }
@@ -359,16 +361,16 @@ func TestIntToInt16(t *testing.T) {
 	}
 
 	for _, tt := range tests {
+		tt := tt
 		t.Run(tt.name, func(t *testing.T) {
 			result, err := safe.IntToInt16(tt.input)
-			if (err != nil) != tt.wantErr {
-				t.Errorf("IntToInt16(%d) error = %v, wantErr %v", tt.input, err, tt.wantErr)
+			if tt.wantErr {
+				require.Error(t, err)
 				return
 			}
 
-			if !tt.wantErr && result != tt.expect {
-				t.Errorf("IntToInt16(%d) = %d, want %d", tt.input, result, tt.expect)
-			}
+			require.NoError(t, err)
+			assert.Equal(t, tt.expect, result)
 		})
 	}
 }
@@ -389,16 +391,16 @@ func TestUintToUint32(t *testing.T) {
 	}
 
 	for _, tt := range tests {
+		tt := tt
 		t.Run(tt.name, func(t *testing.T) {
 			result, err := safe.UintToUint32(tt.input)
-			if (err != nil) != tt.wantErr {
-				t.Errorf("UintToUint32(%d) error = %v, wantErr %v", tt.input, err, tt.wantErr)
+			if tt.wantErr {
+				require.Error(t, err)
 				return
 			}
 
-			if !tt.wantErr && result != tt.expect {
-				t.Errorf("UintToUint32(%d) = %d, want %d", tt.input, result, tt.expect)
-			}
+			require.NoError(t, err)
+			assert.Equal(t, tt.expect, result)
 		})
 	}
 }
@@ -419,16 +421,16 @@ func TestTimeToUint32(t *testing.T) {
 	}
 
 	for _, tt := range tests {
+		tt := tt
 		t.Run(tt.name, func(t *testing.T) {
 			result, err := safe.TimeToUint32(tt.input)
-			if (err != nil) != tt.wantErr {
-				t.Errorf("TimeToUint32(%v) error = %v, wantErr %v", tt.input, err, tt.wantErr)
+			if tt.wantErr {
+				require.Error(t, err)
 				return
 			}
 
-			if !tt.wantErr && result != tt.expect {
-				t.Errorf("TimeToUint32(%v) = %d, want %d", tt.input, result, tt.expect)
-			}
+			require.NoError(t, err)
+			assert.Equal(t, tt.expect, result)
 		})
 	}
 }
@@ -449,16 +451,16 @@ func TestUint32ToUint8(t *testing.T) {
 	}
 
 	for _, tt := range tests {
+		tt := tt
 		t.Run(tt.name, func(t *testing.T) {
 			result, err := safe.Uint32ToUint8(tt.input)
-			if (err != nil) != tt.wantErr {
-				t.Errorf("Uint32ToUint8(%d) error = %v, wantErr %v", tt.input, err, tt.wantErr)
+			if tt.wantErr {
+				require.Error(t, err)
 				return
 			}
 
-			if !tt.wantErr && result != tt.expect {
-				t.Errorf("Uint32ToUint8(%d) = %d, want %d", tt.input, result, tt.expect)
-			}
+			require.NoError(t, err)
+			assert.Equal(t, tt.expect, result)
 		})
 	}
 }
@@ -478,16 +480,16 @@ func TestUintptrToInt(t *testing.T) {
 	}
 
 	for _, tt := range tests {
+		tt := tt
 		t.Run(tt.name, func(t *testing.T) {
 			result, err := safe.UintptrToInt(tt.input)
-			if (err != nil) != tt.wantErr {
-				t.Errorf("UintptrToInt(%d) error = %v, wantErr %v", tt.input, err, tt.wantErr)
+			if tt.wantErr {
+				require.Error(t, err)
 				return
 			}
 
-			if !tt.wantErr && result != tt.expect {
-				t.Errorf("UintptrToInt(%d) = %d, want %d", tt.input, result, tt.expect)
-			}
+			require.NoError(t, err)
+			assert.Equal(t, tt.expect, result)
 		})
 	}
 }
@@ -508,16 +510,16 @@ func TestUint64ToInt64(t *testing.T) {
 	}
 
 	for _, tt := range tests {
+		tt := tt
 		t.Run(tt.name, func(t *testing.T) {
 			result, err := safe.Uint64ToInt64(tt.input)
-			if (err != nil) != tt.wantErr {
-				t.Errorf("Uint64ToInt64(%d) error = %v, wantErr %v", tt.input, err, tt.wantErr)
+			if tt.wantErr {
+				require.Error(t, err)
 				return
 			}
 
-			if !tt.wantErr && result != tt.expect {
-				t.Errorf("Uint64ToInt64(%d) = %d, want %d", tt.input, result, tt.expect)
-			}
+			require.NoError(t, err)
+			assert.Equal(t, tt.expect, result)
 		})
 	}
 }
@@ -538,16 +540,16 @@ func TestUint32ToInt32(t *testing.T) {
 	}
 
 	for _, tt := range tests {
+		tt := tt
 		t.Run(tt.name, func(t *testing.T) {
 			result, err := safe.Uint32ToInt32(tt.input)
-			if (err != nil) != tt.wantErr {
-				t.Errorf("Uint32ToInt32(%d) error = %v, wantErr %v", tt.input, err, tt.wantErr)
+			if tt.wantErr {
+				require.Error(t, err)
 				return
 			}
 
-			if !tt.wantErr && result != tt.expect {
-				t.Errorf("Uint32ToInt32(%d) = %d, want %d", tt.input, result, tt.expect)
-			}
+			require.NoError(t, err)
+			assert.Equal(t, tt.expect, result)
 		})
 	}
 }
@@ -568,16 +570,16 @@ func TestUint64ToInt32(t *testing.T) {
 	}
 
 	for _, tt := range tests {
+		tt := tt
 		t.Run(tt.name, func(t *testing.T) {
 			result, err := safe.Uint64ToInt32(tt.input)
-			if (err != nil) != tt.wantErr {
-				t.Errorf("Uint64ToInt32(%d) error = %v, wantErr %v", tt.input, err, tt.wantErr)
+			if tt.wantErr {
+				require.Error(t, err)
 				return
 			}
 
-			if !tt.wantErr && result != tt.expect {
-				t.Errorf("Uint64ToInt32(%d) = %d, want %d", tt.input, result, tt.expect)
-			}
+			require.NoError(t, err)
+			assert.Equal(t, tt.expect, result)
 		})
 	}
 }
@@ -596,16 +598,16 @@ func TestUint32ToInt64(t *testing.T) {
 	}
 
 	for _, tt := range tests {
+		tt := tt
 		t.Run(tt.name, func(t *testing.T) {
 			result, err := safe.Uint32ToInt64(tt.input)
-			if (err != nil) != tt.wantErr {
-				t.Errorf("Uint32ToInt64(%d) error = %v, wantErr %v", tt.input, err, tt.wantErr)
+			if tt.wantErr {
+				require.Error(t, err)
 				return
 			}
 
-			if !tt.wantErr && result != tt.expect {
-				t.Errorf("Uint32ToInt64(%d) = %d, want %d", tt.input, result, tt.expect)
-			}
+			require.NoError(t, err)
+			assert.Equal(t, tt.expect, result)
 		})
 	}
 }
@@ -624,16 +626,16 @@ func TestUint32ToUint64(t *testing.T) {
 	}
 
 	for _, tt := range tests {
+		tt := tt
 		t.Run(tt.name, func(t *testing.T) {
 			result, err := safe.Uint32ToUint64(tt.input)
-			if (err != nil) != tt.wantErr {
-				t.Errorf("Uint32ToUint64(%d) error = %v, wantErr %v", tt.input, err, tt.wantErr)
+			if tt.wantErr {
+				require.Error(t, err)
 				return
 			}
 
-			if !tt.wantErr && result != tt.expect {
-				t.Errorf("Uint32ToUint64(%d) = %d, want %d", tt.input, result, tt.expect)
-			}
+			require.NoError(t, err)
+			assert.Equal(t, tt.expect, result)
 		})
 	}
 }
@@ -654,16 +656,16 @@ func TestUint64ToUint16(t *testing.T) {
 	}
 
 	for _, tt := range tests {
+		tt := tt
 		t.Run(tt.name, func(t *testing.T) {
 			result, err := safe.Uint64ToUint16(tt.input)
-			if (err != nil) != tt.wantErr {
-				t.Errorf("Uint64ToUint16(%d) error = %v, wantErr %v", tt.input, err, tt.wantErr)
+			if tt.wantErr {
+				require.Error(t, err)
 				return
 			}
 
-			if !tt.wantErr && result != tt.expect {
-				t.Errorf("Uint64ToUint16(%d) = %d, want %d", tt.input, result, tt.expect)
-			}
+			require.NoError(t, err)
+			assert.Equal(t, tt.expect, result)
 		})
 	}
 }
