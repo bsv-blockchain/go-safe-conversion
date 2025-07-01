@@ -1,4 +1,5 @@
 # 🚀 go-safe-conversion
+> A Go library for safe type conversions, ensuring type safety and preventing panics.
 
 <table>
   <thead>
@@ -21,9 +22,9 @@
 		<a href="https://github.com/bsv-blockchain/go-safe-conversion/actions">
           <img src="https://github.com/bsv-blockchain/go-safe-conversion/actions/workflows/codeql-analysis.yml/badge.svg?style=flat" alt="CodeQL">
         </a><br/>
-        <a href="https://github.com/bsv-blockchain/go-safe-conversion/commits/master">
-		  <img src="https://img.shields.io/github/last-commit/bsv-blockchain/go-safe-conversion?style=flat&logo=clockify&logoColor=white" alt="Last commit">
-		</a>
+		<a href="https://sonarcloud.io/project/overview?id=bsv-blockchain_go-safe-conversion">
+          <img src="https://sonarcloud.io/api/project_badges/measure?project=bsv-blockchain_go-safe-conversion&metric=alert_status&style-flat" alt="SonarCloud">
+        </a>
       </td>
       <td valign="top" align="left">
         <a href="https://goreportcard.com/report/github.com/bsv-blockchain/go-safe-conversion">
@@ -37,10 +38,7 @@
         </a><br/>
 		<a href=".github/SECURITY.md">
           <img src="https://img.shields.io/badge/security-policy-blue?style=flat&logo=springsecurity&logoColor=white" alt="Security policy">
-        </a><br/>
-		<a href="https://www.bestpractices.dev/projects/10822">
-		  <img src="https://www.bestpractices.dev/projects/10822/badge?style=flat&logo=springsecurity&logoColor=white" alt="OpenSSF Best Practices">
-		</a>
+        </a>
       </td>
       <td valign="top" align="left">
         <a href="https://golang.org/">
@@ -63,8 +61,11 @@
         <a href="https://github.com/bsv-blockchain/go-safe-conversion/graphs/contributors">
           <img src="https://img.shields.io/github/contributors/bsv-blockchain/go-safe-conversion?style=flat&logo=contentful&logoColor=white" alt="Contributors">
         </a><br/>
+		<a href="https://github.com/bsv-blockchain/go-safe-conversion/commits/master">
+		  <img src="https://img.shields.io/github/last-commit/bsv-blockchain/go-safe-conversion?style=flat&logo=clockify&logoColor=white" alt="Last commit">
+		</a><br/>
         <a href="https://github.com/sponsors/bsv-blockchain">
-          <img src="https://img.shields.io/badge/sponsor-MrZ-181717.svg?logo=github&style=flat" alt="Sponsor">
+          <img src="https://img.shields.io/badge/sponsor-BSV-181717.svg?logo=github&style=flat" alt="Sponsor">
         </a><br/>
       </td>
     </tr>
@@ -74,7 +75,6 @@
 <br/>
 
 ## 🗂️ Table of Contents
-* [What's Inside](#-whats-inside)
 * [Installation](#-installation)
 * [Documentation](#-documentation)
 * [Examples & Tests](#-examples--tests)
@@ -86,9 +86,6 @@
 * [License](#-license)
 
 <br/>
-
-## 🧩 What's Inside
-
 
 ## 📦 Installation
 
@@ -104,7 +101,7 @@ go get -u github.com/bsv-blockchain/go-safe-conversion
 - **API Reference** – Dive into the godocs at [pkg.go.dev/github.com/bsv-blockchain/go-safe-conversion](https://pkg.go.dev/github.com/bsv-blockchain/go-safe-conversion)
 - **Usage Examples** – Browse practical patterns either the [examples directory](examples)
 - **Benchmarks** – Check the latest numbers in the [benchmark results](#benchmark-results)
-- **Test Suite** – Review both the [unit tests](safe_conversion_test.go) and [fuzz tests](save_conversion_fuzz_test.go) (powered by [`testify`](https://github.com/stretchr/testify))
+- **Test Suite** – Review both the [unit tests](safe_conversion_test.go) and [fuzz tests](safe_conversion_fuzz_test.go) (powered by [`testify`](https://github.com/stretchr/testify))
 
 > **Good to know:** `go-safe-conversion` ships with *zero* runtime dependencies.  
 > The only external package we use is `testify`—and that's strictly for tests.
@@ -143,78 +140,6 @@ go get -u github.com/bsv-blockchain/go-safe-conversion
 </details>
 
 <details>
-<summary><strong><code>Repository File Glossary</code></strong></summary>
-<br/>
-
-This glossary describes each tracked file in the repository and notes if it is required for GitHub or another external service.
-
-| File Path                                                                                      | Description                                     | Service          |
-|------------------------------------------------------------------------------------------------|-------------------------------------------------|------------------|
-| [.cursorrules](.cursorrules)                                                                   | Rules for Cursor AI integrations                | Cursor           |
-| [.devcontainer/devcontainer.json](.devcontainer/devcontainer.json)                             | VS Code dev or GitHub container configuration   | VS Code & GitHub |
-| [.dockerignore](.dockerignore)                                                                 | Paths ignored by Docker builds                  | Docker           |
-| [.editorconfig](.editorconfig)                                                                 | Editor configuration defaults                   | Editor           |
-| [.gitattributes](.gitattributes)                                                               | Git attributes and export settings              | Git              |
-| [.github/AGENTS.md](.github/AGENTS.md)                                                         | Contribution rules and guidelines               | GitHub           |
-| [.github/CLAUDE.md](.github/CLAUDE.md)                                                         | Claude agent instructions                       | Claude           |
-| [.github/CODEOWNERS](.github/CODEOWNERS)                                                       | Code ownership declarations for GitHub          | GitHub           |
-| [.github/CODE_OF_CONDUCT.md](.github/CODE_OF_CONDUCT.md)                                       | Community behavior standards                    | GitHub           |
-| [.github/CODE_STANDARDS.md](.github/CODE_STANDARDS.md)                                         | Coding style guide                              | GitHub           |
-| [.github/CONTRIBUTING.md](.github/CONTRIBUTING.md)                                             | How to contribute to the project                | GitHub           |
-| [.github/FUNDING.yml](.github/FUNDING.yml)                                                     | Funding links displayed by GitHub               | GitHub           |
-| [.github/IMAGES/go-share-image.png](.github/IMAGES/go-share-image.png)                         | Social sharing image                            | GitHub           |
-| [.github/ISSUE_TEMPLATE/bug_report.yml](.github/ISSUE_TEMPLATE/bug_report.yml)                 | Issue template for bug reports                  | GitHub           |
-| [.github/ISSUE_TEMPLATE/feature_request.yml](.github/ISSUE_TEMPLATE/feature_request.yml)       | Issue template for feature requests             | GitHub           |
-| [.github/ISSUE_TEMPLATE/question.yml](.github/ISSUE_TEMPLATE/question.yml)                     | Issue template for questions                    | GitHub           |
-| [.github/SECURITY.md](.github/SECURITY.md)                                                     | Security policy                                 | GitHub           |
-| [.github/SUPPORT.md](.github/SUPPORT.md)                                                       | Support guidelines                              | GitHub           |
-| [.github/dependabot.yml](.github/dependabot.yml)                                               | Dependabot configuration                        | GitHub           |
-| [.github/labels.yml](.github/labels.yml)                                                       | Repository label definitions                    | GitHub           |
-| [.github/pull_request_template.md](.github/pull_request_template.md)                           | Pull request description template               | GitHub           |
-| [.github/sweep.yaml](.github/sweep.yaml)                                                       | Sweep AI configuration                          | Sweep AI         |
-| [.github/workflows/auto-merge-on-approval.yml](.github/workflows/auto-merge-on-approval.yml)   | Workflow for automatic merges                   | GitHub Actions   |
-| [.github/workflows/check-for-leaks.yml](.github/workflows/check-for-leaks.yml)                 | Secret leak detection workflow                  | GitHub Actions   |
-| [.github/workflows/clean-runner-cache.yml](.github/workflows/clean-runner-cache.yml)           | Cleanup for GitHub runners                      | GitHub Actions   |
-| [.github/workflows/codeql-analysis.yml](.github/workflows/codeql-analysis.yml)                 | CodeQL security analysis workflow               | GitHub Actions   |
-| [.github/workflows/delete-merged-branches.yml](.github/workflows/delete-merged-branches.yml)   | Auto delete merged branches                     | GitHub Actions   |
-| [.github/workflows/dependabot-auto-merge.yml](.github/workflows/dependabot-auto-merge.yml)     | Auto merge Dependabot PRs                       | GitHub Actions   |
-| [.github/workflows/pull-request-management.yml](.github/workflows/pull-request-management.yml) | Pull request triage workflow                    | GitHub Actions   |
-| [.github/workflows/release.yml](.github/workflows/release.yml)                                 | Release workflow using GoReleaser               | GitHub Actions   |
-| [.github/workflows/run-tests.yml](.github/workflows/run-tests.yml)                             | CI test workflow                                | GitHub Actions   |
-| [.github/workflows/scorecard.yml](.github/workflows/scorecard.yml)                             | OpenSSF Scorecard workflow                      | GitHub Actions   |
-| [.github/workflows/stale.yml](.github/workflows/stale.yml)                                     | Close stale issues and PRs                      | GitHub Actions   |
-| [.github/workflows/sync-labels.yml](.github/workflows/sync-labels.yml)                         | Sync repository labels                          | GitHub Actions   |
-| [.github/workflows/update-pre-commit-hooks.yml](.github/workflows/update-pre-commit-hooks.yml) | Automatically update pre-commit hooks           | GitHub Actions   |
-| [.github/workflows/update-pip-requirements.yml](.github/workflows/update-pip-requirements.yml) | Update Python requirements for pre-commit hooks | GitHub Actions   |
-| [.gitignore](.gitignore)                                                                       | Files and directories Git should ignore         | Git              |
-| [.gitpod.yml](.gitpod.yml)                                                                     | Gitpod workspace configuration                  | Gitpod           |
-| [.golangci.json](.golangci.json)                                                               | GolangCI-Lint configuration                     | GolangCI-Lint    |
-| [.goreleaser.yml](.goreleaser.yml)                                                             | GoReleaser configuration for release automation | GoReleaser       |
-| [.make/common.mk](.make/common.mk)                                                             | Shared make tasks                               | Make             |
-| [.make/go.mk](.make/go.mk)                                                                     | Go-specific make tasks                          | Make             |
-| [.make/temp.mk](.make/temp.mk)                                                                 | Temporary makefile for internal use             | Make             |
-| [.pre-commit-config.yaml](.pre-commit-config.yaml)                                             | Pre-commit hooks configuration                  | Pre-commit       |
-| [.vscode/extensions.json](.vscode/extensions.json)                                             | Recommended VS Code extensions                  | VS Code          |
-| [.vscode/launch.json](.vscode/launch.json)                                                     | VS Code debugging configuration                 | VS Code          |
-| [.vscode/settings.json](.vscode/settings.json)                                                 | VS Code workspace settings                      | VS Code          |
-| [.vscode/tasks.json](.vscode/tasks.json)                                                       | VS Code tasks configuration                     | VS Code          |
-| [CITATION.cff](CITATION.cff)                                                                   | Citation metadata recognized by GitHub          | GitHub           |
-| [Dockerfile](Dockerfile)                                                                       | Docker image build instructions                 | Docker           |
-| [LICENSE](LICENSE)                                                                             | Project license                                 | Yours!           |
-| [Makefile](Makefile)                                                                           | Build and lint automation                       | Make             |
-| [README.md](README.md)                                                                         | Project overview and usage                      | Yours!           |
-| [codecov.yml](codecov.yml)                                                                     | Codecov upload configuration                    | Codecov          |
-| [examples/example.go](examples/example.go)                                                     | Example usage of the library                    | None             |
-| [go.mod](go.mod)                                                                               | Go module definition                            | Go               |
-| [go.sum](go.sum)                                                                               | Dependency checksums generated by Go            | Go               |
-| [template.go](template.go)                                                                     | Main package source code                        | Yours!           |
-| [template_benchmark_test.go](template_benchmark_test.go)                                       | Go benchmark tests                              | Go test          |
-| [template_example_test.go](template_example_test.go)                                           | Example tests for documentation                 | Go test          |
-| [template_fuzz_test.go](template_fuzz_test.go)                                                 | Go fuzz tests                                   | Go test          |
-| [template_test.go](template_test.go)                                                           | Unit tests                                      | Go test          |
-</details>
-
-<details>
 <summary><strong><code>Library Deployment</code></strong></summary>
 <br/>
 
@@ -230,12 +155,6 @@ To generate a snapshot (non-versioned) release for testing purposes, run:
 
 ```bash
 make release-snap
-```
-
-Before tagging a new version, update the release metadata in the `CITATION.cff` file:
-
-```bash
-make citation version=0.2.1
 ```
 
 Then create and push a new Git tag using:
@@ -377,7 +296,7 @@ make bench
 
 <br/>
 
-### Benchmark Results (TODO)
+### Benchmark Results
 
 | Benchmark                           | Iterations | ns/op | B/op | allocs/op |
 |-------------------------------------|------------|------:|-----:|----------:|
@@ -407,7 +326,7 @@ Edit `AGENTS.md` first when adjusting these policies, and keep the other files i
 
 ## 👥 Maintainers
 | [<img src="https://github.com/icellan.png" height="50" alt="Siggi" />](https://github.com/icellan) |
-|:------------------------------------------------------------------------------------------------:|
+|:--------------------------------------------------------------------------------------------------:|
 |                                [Siggi](https://github.com/icellan)                                 |
 
 <br/>
