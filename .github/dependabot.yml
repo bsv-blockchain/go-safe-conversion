@@ -43,7 +43,7 @@ updates:
           gomod-minor-patch:
               update-types: ["minor", "patch"]
       open-pull-requests-limit: 10
-      assignees: ["icellan"]
+      assignees: ["mrz1836","galt-tr"]
       labels: ["chore", "dependencies", "gomod"]
       commit-message:
           prefix: "chore(deps)"
@@ -71,7 +71,7 @@ updates:
           ghactions-all:
               patterns: ["*"]
       open-pull-requests-limit: 10
-      assignees: ["icellan"]
+      assignees: ["mrz1836","galt-tr"]
       labels: ["chore", "dependencies", "github-actions"]
       commit-message:
           prefix: "chore(deps)"
@@ -94,7 +94,7 @@ updates:
           devcontainer-all:
               patterns: ["*"]
       open-pull-requests-limit: 5
-      assignees: ["icellan"]
+      assignees: ["mrz1836","galt-tr"]
       labels: ["chore", "dependencies", "devcontainer"]
       commit-message:
           prefix: "chore(deps)"
