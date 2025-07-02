@@ -1,3 +1,4 @@
+// Package safeconversion_test provides tests for the safe conversion functions.
 package safeconversion_test
 
 import (
