@@ -14,6 +14,7 @@ import (
 const (
 	// MinInt16 defines the minimum integer value for an int16
 	MinInt16 = -1 << 15 // -32768
+
 	// MaxInt16 defines the maximum integer value for an int16
 	MaxInt16 = 1<<15 - 1 // 32767
 )
@@ -21,10 +22,13 @@ const (
 var (
 	// ErrValueOutOfRange defines when a value is out of range
 	ErrValueOutOfRange = errors.New("value out of range")
+
 	// ErrValueOverflow defines when a value is overflowing the data type
 	ErrValueOverflow = errors.New("value overflow")
+
 	// ErrNegativeValueCannotBeConverted defines when a negative value is trying to be used with an unsigned integer
 	ErrNegativeValueCannotBeConverted = errors.New("negative value cannot be converted to unsigned integer")
+
 	// ErrValueExceedsLimit defines when a converted value exceeds the limit of the data type
 	ErrValueExceedsLimit = errors.New("value exceeds limit")
 )
