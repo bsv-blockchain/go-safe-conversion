@@ -16,7 +16,7 @@
 # Security Hardened Defaults:
 #   • Weekly cadence (Monday 09:00 America/New_York) – align with CVE dump cycle.
 #   • Direct dependencies only – prevents unsolicited transitive churn.
-#   • PRs labeled, assigned, and target the protected “master” branch.
+#   • PRs labeled, assigned, and target the protected "master" branch.
 #   • PR titles prefixed with chore(scope): – conventional commits.
 #   • Force‑push and delete‑branch disabled via branch‑protection rules.
 #   • PR limit = 10 to avoid queue flooding.
@@ -43,7 +43,7 @@ updates:
       gomod-minor-patch:
         update-types: [ "minor", "patch" ]
     open-pull-requests-limit: 10
-    assignees: [ "mrz1836","galt-tr" ]
+    assignees: [ "galt-tr","mrz1836" ]
     labels: [ "chore", "dependencies", "gomod" ]
     commit-message:
       prefix: "chore(deps)"
@@ -71,17 +71,17 @@ updates:
       ghactions-all:
         patterns: [ "*" ]
     open-pull-requests-limit: 10
-    assignees: [ "mrz1836","galt-tr" ]
+    assignees: [ "galt-tr","mrz1836" ]
     labels: [ "chore", "dependencies", "github-actions" ]
     commit-message:
-      prefix: "chore(deps)"
+      prefix: "chore"
       include: "scope"
 
   # ──────────────────────────────────────────────────────────────
   # 3. DevContainer (devcontainer.json : base image + features)
   # ──────────────────────────────────────────────────────────────
   - package-ecosystem: "devcontainers"
-    directory: "/.devcontainer"
+    directory: "/"
     target-branch: "master"
     schedule:
       interval: "weekly"
@@ -94,8 +94,8 @@ updates:
       devcontainer-all:
         patterns: [ "*" ]
     open-pull-requests-limit: 5
-    assignees: [ "mrz1836","galt-tr" ]
+    assignees: [ "galt-tr","mrz1836" ]
     labels: [ "chore", "dependencies", "devcontainer" ]
     commit-message:
-      prefix: "chore(deps)"
+      prefix: "chore"
       include: "scope"
