@@ -9,7 +9,6 @@ import (
 
 // main function demonstrates the usage of safe conversion functions.
 func main() {
-
 	// Example of converting int32 to uint32 safely
 	val, err := safeconversion.Int32ToUint32(42)
 	if err != nil {
