@@ -7,9 +7,10 @@ import (
 	"testing"
 	"time"
 
-	safe "github.com/bsv-blockchain/go-safe-conversion"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
+
+	safe "github.com/bsv-blockchain/go-safe-conversion"
 )
 
 const (
