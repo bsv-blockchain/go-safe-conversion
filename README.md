@@ -25,7 +25,6 @@
        &nbsp;&nbsp;&nbsp;&nbsp; <code>Quality</code> &nbsp;&nbsp;
     </td>
     <td align="left">
-       <a href="https://goreportcard.com/report/github.com/bsv-blockchain/go-safe-conversion"><img src="https://goreportcard.com/badge/github.com/bsv-blockchain/go-safe-conversion?style=flat-square" alt="Go Report"></a>
        <a href="https://codecov.io/gh/bsv-blockchain/go-safe-conversion"><img src="https://codecov.io/gh/bsv-blockchain/go-safe-conversion/branch/master/graph/badge.svg?style=flat-square" alt="Coverage"></a>
     </td>
   </tr>
